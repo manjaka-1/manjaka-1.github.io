@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Melinina R. — Freelance Data Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #faf8f4;
+    --white: #ffffff;
+    --ink: #1a1714;
+    --ink-light: #5a5550;
+    --accent: #2d6a4f;
+    --accent-light: #52b788;
+    --accent-pale: #d8f3dc;
+    --border: #e8e4de;
+    --shadow: 0 2px 20px rgba(26,23,20,0.07);
+    --shadow-lg: 0 8px 40px rgba(26,23,20,0.12);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(250,248,244,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.875rem; font-weight: 500;
+    color: var(--ink-light); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 100px 2rem 4rem;
+    max-width: 1100px; margin: 0 auto;
+    gap: 4rem;
+  }
+  .hero-text { flex: 1; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--accent-pale);
+    color: var(--accent);
+    font-size: 0.8rem; font-weight: 600;
+    padding: 0.35rem 0.9rem;
+    border-radius: 100px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-badge::before { content: '●'; font-size: 0.5rem; }
+  .hero-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero-sub {
+    font-size: 1.1rem; font-weight: 300;
+    color: var(--ink-light);
+    max-width: 480px;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: var(--accent);
+    color: white;
+    font-size: 0.95rem; font-weight: 600;
+    padding: 0.9rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+  .hero-cta:hover { background: #1e4d38; transform: translateY(-2px); }
+  .hero-cta::after { content: '→'; }
+
+  .hero-card {
+    flex: 0 0 320px;
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border);
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+  .avatar {
+    width: 72px; height: 72px;
+    background: linear-gradient(135deg, var(--accent-light), var(--accent));
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem; color: white;
+    margin-bottom: 1rem;
+  }
+  .card-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem; margin-bottom: 0.25rem;
+  }
+  .card-title {
+    font-size: 0.85rem; color: var(--ink-light);
+    margin-bottom: 1.25rem;
+  }
+  .card-stats {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+  .stat {
+    background: var(--cream);
+    border-radius: 10px;
+    padding: 0.75rem;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem; color: var(--accent);
+  }
+  .stat-label { font-size: 0.75rem; color: var(--ink-light); }
+  .card-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .tag {
+    font-size: 0.75rem; font-weight: 500;
+    background: var(--accent-pale);
+    color: var(--accent);
+    padding: 0.3rem 0.7rem;
+    border-radius: 100px;
+  }
+
+  /* SECTION COMMON */
+  section { padding: 6rem 2rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.8rem; font-weight: 600;
+    color: var(--accent); letter-spacing: 0.1em;
+    text-transform: uppercase; margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    line-height: 1.2; margin-bottom: 1rem;
+  }
+  .section-sub {
+    font-size: 1rem; color: var(--ink-light);
+    max-width: 520px; line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+
+  /* SERVICES */
+  .services-bg { background: var(--white); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  .service-card {
+    background: var(--cream);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-light), var(--accent));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-icon {
+    width: 48px; height: 48px;
+    background: var(--accent-pale);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 1.25rem;
+  }
+  .service-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem; margin-bottom: 0.75rem;
+  }
+  .service-desc {
+    font-size: 0.9rem; color: var(--ink-light);
+    line-height: 1.7; margin-bottom: 1.25rem;
+  }
+  .service-list { list-style: none; }
+  .service-list li {
+    font-size: 0.85rem; color: var(--ink-light);
+    padding: 0.3rem 0;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .service-list li::before { content: '✓'; color: var(--accent); font-weight: 700; }
+
+  /* WHY ME */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+  }
+  .why-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 1.5rem;
+    transition: border-color 0.2s;
+  }
+  .why-card:hover { border-color: var(--accent-light); }
+  .why-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.5rem; color: var(--accent-pale);
+    line-height: 1; margin-bottom: 0.5rem;
+  }
+  .why-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.4rem; }
+  .why-desc { font-size: 0.85rem; color: var(--ink-light); line-height: 1.6; }
+
+  /* PROCESS */
+  .process-bg { background: var(--white); }
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    position: relative;
+  }
+  .step { text-align: center; }
+  .step-num {
+    width: 52px; height: 52px;
+    background: var(--accent);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    margin: 0 auto 1rem;
+  }
+  .step-title { font-weight: 600; margin-bottom: 0.4rem; }
+  .step-desc { font-size: 0.875rem; color: var(--ink-light); line-height: 1.6; }
+
+  /* CONTACT */
+  .contact-box {
+    background: var(--ink);
+    border-radius: 24px;
+    padding: 4rem;
+    text-align: center;
+    color: white;
+  }
+  .contact-box .section-label { color: var(--accent-light); }
+  .contact-box .section-title { color: white; margin: 0 auto 1rem; }
+  .contact-box .section-sub { color: rgba(255,255,255,0.6); margin: 0 auto 2.5rem; }
+  .contact-btn {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: var(--accent-light);
+    color: var(--ink);
+    font-weight: 700; font-size: 1rem;
+    padding: 1rem 2.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .contact-btn:hover { background: white; transform: translateY(-2px); }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.8rem;
+    color: var(--ink-light);
+    border-top: 1px solid var(--border);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 768px) {
+    .hero { flex-direction: column; gap: 2rem; padding-top: 80px; }
+    .hero-card { flex: none; width: 100%; }
+    .nav-links { display: none; }
+    .contact-box { padding: 2.5rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">Melinina R.</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">Why Me</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-text">
+    <div class="hero-badge">Available for hire</div>
+    <h1 class="hero-title">
+      Accurate data,<br/><em>delivered fast.</em>
+    </h1>
+    <p class="hero-sub">
+      I help businesses and AI teams with precise data entry, annotation, and web research — so your projects run smoothly and your data stays clean.
+    </p>
+    <a class="hero-cta" href="#contact">Work with me</a>
+  </div>
+
+  <div class="hero-card">
+    <div class="avatar">M</div>
+    <div class="card-name">Melinina R.</div>
+    <div class="card-title">Freelance Data Specialist · Madagascar</div>
+    <div class="card-stats">
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Accuracy</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">24h</div>
+        <div class="stat-label">Response time</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Core services</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">EN</div>
+        <div class="stat-label">Fluent English</div>
+      </div>
+    </div>
+    <div class="card-tags">
+      <span class="tag">Data Entry</span>
+      <span class="tag">Annotation</span>
+      <span class="tag">Research</span>
+      <span class="tag">AI Training</span>
+      <span class="tag">Fast learner</span>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="services-bg" id="services">
+  <div class="container">
+    <div class="section-label">What I offer</div>
+    <h2 class="section-title">Services</h2>
+    <p class="section-sub">Clean, accurate, and delivered on time — every time.</p>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">📋</div>
+        <div class="service-name">Data Entry & Copy Paste</div>
+        <p class="service-desc">Fast and accurate transfer of information into spreadsheets, databases, or any format you need.</p>
+        <ul class="service-list">
+          <li>Excel & Google Sheets</li>
+          <li>PDF to spreadsheet</li>
+          <li>Form filling & database entry</li>
+          <li>Formatting & clean-up</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🏷️</div>
+        <div class="service-name">Data Annotation & Labeling</div>
+        <p class="service-desc">Helping AI systems learn by labeling, tagging, and classifying text, images, and more with precision.</p>
+        <ul class="service-list">
+          <li>Text & sentiment labeling</li>
+          <li>Image tagging & classification</li>
+          <li>AI training dataset preparation</li>
+          <li>Quality checking & review</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">🔍</div>
+        <div class="service-name">Web Research</div>
+        <p class="service-desc">Thorough online research with organized, verified results — saving you time and effort.</p>
+        <ul class="service-list">
+          <li>Lead generation & contact finding</li>
+          <li>Competitor & market research</li>
+          <li>Product & price research</li>
+          <li>Summarized research reports</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY ME -->
+<section id="why">
+  <div class="container">
+    <div class="section-label">Why choose me</div>
+    <h2 class="section-title">What sets me apart</h2>
+    <p class="section-sub">I bring attention to detail, fast turnaround, and clear communication to every project.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-num">01</div>
+        <div class="why-title">Detail-oriented</div>
+        <div class="why-desc">I double-check everything before delivery. No errors slip through.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-num">02</div>
+        <div class="why-title">Fluent English</div>
+        <div class="why-desc">Clear communication throughout the project — no misunderstandings.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-num">03</div>
+        <div class="why-title">Fast turnaround</div>
+        <div class="why-desc">I respect deadlines and always deliver on time, often ahead of schedule.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-num">04</div>
+        <div class="why-title">Quick learner</div>
+        <div class="why-desc">I adapt fast to new tools, formats, or instructions with minimal guidance.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-bg" id="process">
+  <div class="container">
+    <div class="section-label">How it works</div>
+    <h2 class="section-title">My process</h2>
+    <p class="section-sub">Simple, transparent, and stress-free from start to finish.</p>
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-title">You send requirements</div>
+        <div class="step-desc">Share your project details, files, and deadline. I'll confirm I understand everything.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-title">I get to work</div>
+        <div class="step-desc">I complete the task carefully and accurately, following your exact instructions.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-title">Review & feedback</div>
+        <div class="step-desc">You review the delivery. I'll make revisions until you're completely satisfied.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-title">Done!</div>
+        <div class="step-desc">You get clean, accurate results delivered on time — ready to use.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-box">
+      <div class="section-label">Let's work together</div>
+      <h2 class="section-title">Ready to get started?</h2>
+      <p class="section-sub">Send me a message on Fiverr and let's discuss your project. Fast response guaranteed.</p>
+      <a class="contact-btn" href="https://www.fiverr.com" target="_blank">Message me on Fiverr →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Melinina R. · Freelance Data Specialist · Madagascar
+</footer>
+
+</body>
+</html>
